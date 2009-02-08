@@ -5,11 +5,6 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs>
     <nav-item href="#{base_url}/">Home</nav-item>
-    <nav-item with="&Invoice">Invoices</nav-item>
-    <nav-item with="&Project">Projects</nav-item>
-    <nav-item with="&Reply">Replies</nav-item>
-    <nav-item with="&Site">Sites</nav-item>
-    <nav-item with="&Task">Tasks</nav-item>
   </navigation>
 </def>
 
@@ -31,8 +26,6 @@
       </header>
       
       <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>      
 
         <page-nav param="top-page-nav"/>
       
@@ -108,32 +101,6 @@
   </page>
 </def>
 
-<def tag="index-for-user-page" polymorphic/>
-<def tag="index-for-user-page" for="Invoice">
-  <page merge title="Invoices for #{name :with => @user, :no_wrapper => true}">
-    <body: class="index-for-owner-page user invoice" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <div param="back-to">Back to <a with="&@user"/></div>
-
-        <h2 param="heading"><Your with="&current_user"/> Invoices</h2>
-        <p param="count" if>There <count prefix="are"/></p>
-      </header>
-      
-      <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>
-
-        <page-nav param="top-page-nav"/>
-      
-        <collection param/>
-      
-        <page-nav param="bottom-page-nav"/>
-      </section>
-    </content:>
-  </page>
-</def>
 
 
 <def tag="new-for-user-page" polymorphic/>
@@ -162,6 +129,95 @@
 
 
   
+<!-- ====== ProjectMembership Pages ====== -->
+
+
+<def tag="index-page" for="ProjectMembership">
+  <page merge title="Project Memberships">
+    <body: class="index-page project-membership" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Project Memberships</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="ProjectMembership">
+  <page merge title="New Project Membership">
+    <body: class="new-page project-membership" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Project Membership</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Project Membership"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="ProjectMembership">
+  <page merge title="Project Membership">
+
+    <body: class="show-page project-membership" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+          </header>
+    
+          <section param="content-body">
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="ProjectMembership">
+  <page merge title="Edit Project Membership">
+
+    <body: class="edit-page project-membership" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Project Membership" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+
+
+  
 <!-- ====== Project Pages ====== -->
 
 
@@ -177,8 +233,6 @@
       </header>
       
       <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>      
 
         <page-nav param="top-page-nav"/>
       
@@ -260,32 +314,6 @@
   </page>
 </def>
 
-<def tag="index-for-user-page" polymorphic/>
-<def tag="index-for-user-page" for="Project">
-  <page merge title="Projects for #{name :with => @user, :no_wrapper => true}">
-    <body: class="index-for-owner-page user project" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <div param="back-to">Back to <a with="&@user"/></div>
-
-        <h2 param="heading"><Your with="&current_user"/> Projects</h2>
-        <p param="count" if>There <count prefix="are"/></p>
-      </header>
-      
-      <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>
-
-        <page-nav param="top-page-nav"/>
-      
-        <collection param/>
-      
-        <page-nav param="bottom-page-nav"/>
-      </section>
-    </content:>
-  </page>
-</def>
 
 
 <def tag="new-for-user-page" polymorphic/>
@@ -329,8 +357,6 @@
       </header>
       
       <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>      
 
         <page-nav param="top-page-nav"/>
       
@@ -457,32 +483,6 @@
   </page>
 </def>
 
-<def tag="index-for-user-page" polymorphic/>
-<def tag="index-for-user-page" for="Reply">
-  <page merge title="Replies for #{name :with => @user, :no_wrapper => true}">
-    <body: class="index-for-owner-page user reply" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <div param="back-to">Back to <a with="&@user"/></div>
-
-        <h2 param="heading"><Your with="&current_user"/> Replies</h2>
-        <p param="count" if>There <count prefix="are"/></p>
-      </header>
-      
-      <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>
-
-        <page-nav param="top-page-nav"/>
-      
-        <collection param/>
-      
-        <page-nav param="bottom-page-nav"/>
-      </section>
-    </content:>
-  </page>
-</def>
 
 
 <def tag="new-for-user-page" polymorphic/>
@@ -526,8 +526,6 @@
       </header>
       
       <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>      
 
         <page-nav param="top-page-nav"/>
       
@@ -603,32 +601,6 @@
   </page>
 </def>
 
-<def tag="index-for-user-page" polymorphic/>
-<def tag="index-for-user-page" for="Site">
-  <page merge title="Sites for #{name :with => @user, :no_wrapper => true}">
-    <body: class="index-for-owner-page user site" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <div param="back-to">Back to <a with="&@user"/></div>
-
-        <h2 param="heading"><Your with="&current_user"/> Sites</h2>
-        <p param="count" if>There <count prefix="are"/></p>
-      </header>
-      
-      <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>
-
-        <page-nav param="top-page-nav"/>
-      
-        <collection param/>
-      
-        <page-nav param="bottom-page-nav"/>
-      </section>
-    </content:>
-  </page>
-</def>
 
 
 <def tag="new-for-user-page" polymorphic/>
@@ -672,8 +644,6 @@
       </header>
       
       <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>      
 
         <page-nav param="top-page-nav"/>
       
@@ -800,32 +770,6 @@
   </page>
 </def>
 
-<def tag="index-for-user-page" polymorphic/>
-<def tag="index-for-user-page" for="Task">
-  <page merge title="Tasks for #{name :with => @user, :no_wrapper => true}">
-    <body: class="index-for-owner-page user task" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <div param="back-to">Back to <a with="&@user"/></div>
-
-        <h2 param="heading"><Your with="&current_user"/> Tasks</h2>
-        <p param="count" if>There <count prefix="are"/></p>
-      </header>
-      
-      <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>
-
-        <page-nav param="top-page-nav"/>
-      
-        <collection param/>
-      
-        <page-nav param="bottom-page-nav"/>
-      </section>
-    </content:>
-  </page>
-</def>
 
 
 <def tag="new-for-user-page" polymorphic/>
@@ -869,8 +813,6 @@
       </header>
       
       <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>      
 
         <page-nav param="top-page-nav"/>
       
@@ -954,32 +896,6 @@
   </page>
 </def>
 
-<def tag="index-for-user-page" polymorphic/>
-<def tag="index-for-user-page" for="Ticket">
-  <page merge title="Tickets for #{name :with => @user, :no_wrapper => true}">
-    <body: class="index-for-owner-page user ticket" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <div param="back-to">Back to <a with="&@user"/></div>
-
-        <h2 param="heading"><Your with="&current_user"/> Tickets</h2>
-        <p param="count" if>There <count prefix="are"/></p>
-      </header>
-      
-      <section param="content-body">
-
-        <a action="new" to="&model" param="new-link"/>
-
-        <page-nav param="top-page-nav"/>
-      
-        <collection param/>
-      
-        <page-nav param="bottom-page-nav"/>
-      </section>
-    </content:>
-  </page>
-</def>
 
 
 <def tag="new-for-user-page" polymorphic/>

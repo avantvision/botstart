@@ -12,6 +12,18 @@
 
 
 
+<def tag="form" for="ProjectMembership">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="Project">
   <form merge param="default">
     <error-messages param/>

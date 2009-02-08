@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   hobo_user_model # Don't put anything above this
   
+  
   has_many :tickets, :dependent => :destroy, :foreign_key => "user_id"
   has_many :projects, :dependent => :destroy, :foreign_key => "user_id"
   has_many :sites, :dependent => :destroy, :foreign_key => "user_id"

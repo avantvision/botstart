@@ -5,7 +5,7 @@
 
 <section with="&current_user" class="content-body" if="&logged_in?"> 
   <h3>Tus Tickets</h3> 
-   <collection:tickets with="&current_user"><card without-creator/></collection> 
+   <collection:tickets with="&current_user"><card without-creator-link/></collection> 
 <a:tickets action="new">New Ticket</a> 
 </section>
  

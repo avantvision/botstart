@@ -23,6 +23,17 @@
   </card>
 </def>
 
+<def tag="card" for="ProjectMembership">
+  <card class="project-membership" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+      <div param="actions">
+        <delete-button label="X" param/>
+      </div>
+    </header:>
+  </card>
+</def>
+
 <def tag="card" for="Reply">
   <card class="reply" param="default" merge>
     <header: param>

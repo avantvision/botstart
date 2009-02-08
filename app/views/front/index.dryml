@@ -7,15 +7,16 @@
       <h1>Welcome to <app-name/></h1>
       
     </header>
+
 	<section with="&current_user" class="content-body" if="&logged_in?"> 
 	  <h3>Your Projects</h3> 
-	   <collection:projects with="&current_user"><card without-creator/></collection> 
+	   <collection:projects with="&current_user"><card without-creator-link/></collection> 
 	<a:projects action="new">New Project</a> 
 	</section>
 	<section with="&current_user" class="content-body" 
 	if="&logged_in?"> 
 	  <h3>Your Tickets</h3> 
-	   <collection:tickets with="&current_user"><card without-creator/></collection> 
+	   <collection:tickets with="&current_user"><card without-creator-link/></collection> 
 	<a:tickets action="new">New Ticket</a> 
 	</section>
 	
