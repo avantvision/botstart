@@ -21,7 +21,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def update_permitted?
-  !user_changed?
+  !user_changed?  
   end
 
   def destroy_permitted?
