@@ -1,0 +1,1165 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<!-- ====== Main Navigation ====== -->
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Invoice">Invoices</nav-item>
+    <nav-item with="&Project">Projects</nav-item>
+    <nav-item with="&Reply">Replies</nav-item>
+    <nav-item with="&Site">Sites</nav-item>
+    <nav-item with="&Task">Tasks</nav-item>
+  </navigation>
+</def>
+
+
+
+   
+<!-- ====== Invoice Pages ====== -->
+
+
+<def tag="index-page" for="Invoice">
+  <page merge title="Invoices">
+    <body: class="index-page invoice" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Invoices</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Invoice">
+  <page merge title="New Invoice">
+    <body: class="new-page invoice" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Invoice</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Invoice"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Invoice">
+  <page merge title="Invoice">
+
+    <body: class="show-page invoice" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Invoice</a>
+          </header>
+    
+          <section param="content-body">
+            <field-list fields="amount" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Invoice">
+  <page merge title="Edit Invoice">
+
+    <body: class="edit-page invoice" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Invoice" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="index-for-user-page" polymorphic/>
+<def tag="index-for-user-page" for="Invoice">
+  <page merge title="Invoices for #{name :with => @user, :no_wrapper => true}">
+    <body: class="index-for-owner-page user invoice" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@user"/></div>
+
+        <h2 param="heading"><Your with="&current_user"/> Invoices</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Invoice">
+  <page merge title="New Invoice for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  invoice" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Invoice</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Invoice"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== Project Pages ====== -->
+
+
+<def tag="index-page" for="Project">
+  <page merge title="Projects">
+    <body: class="index-page project" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Projects</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Project">
+  <page merge title="New Project">
+    <body: class="new-page project" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Project</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Project"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Project">
+  <page merge title="Project">
+
+    <body: class="show-page project" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Project</a>
+          </header>
+    
+          <section param="content-body">
+            <section param="collection-section">
+              <h3 param="collection-heading">Tasks</h3>
+              
+              <collection:tasks param/>
+
+              <a:tasks action="new" if="&can_create?(@project.tasks)" param="new-link">New Task</a>
+            </section>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Project">
+  <page merge title="Edit Project">
+
+    <body: class="edit-page project" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Project" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="index-for-user-page" polymorphic/>
+<def tag="index-for-user-page" for="Project">
+  <page merge title="Projects for #{name :with => @user, :no_wrapper => true}">
+    <body: class="index-for-owner-page user project" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@user"/></div>
+
+        <h2 param="heading"><Your with="&current_user"/> Projects</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Project">
+  <page merge title="New Project for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  project" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Project</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Project"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== Reply Pages ====== -->
+
+
+<def tag="index-page" for="Reply">
+  <page merge title="Replies">
+    <body: class="index-page reply" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Replies</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Reply">
+  <page merge title="New Reply">
+    <body: class="new-page reply" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Reply</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Reply"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Reply">
+  <page merge title="Reply">
+
+    <body: class="show-page reply" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:ticket param="parent-link">&laquo; <name/></a>
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Reply</a>
+          </header>
+    
+          <section param="content-body">
+            <view:description param="description"/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Reply">
+  <page merge title="Edit Reply">
+
+    <body: class="edit-page reply" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Reply" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="index-for-ticket-page" polymorphic/>
+<def tag="index-for-ticket-page" for="Reply">
+  <page merge title="Replies for #{name :with => @ticket, :no_wrapper => true}">
+    <body: class="index-for-owner-page ticket reply" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@ticket"/></div>
+        <h2 param="heading">Replies</h2>
+        <h3 param="subheading">For: <a with="&@ticket"/></h3>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-ticket-page" polymorphic/>
+<def tag="new-for-ticket-page" for="Reply">
+  <page merge title="New Reply for #{name :with => @ticket}">
+    
+    <body: class="new-for-owner-page  reply" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Reply</h2>
+        <h3 param="subheading">For: <a with="&@ticket"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="ticket" method="post" param>
+          <field-list: skip="ticket"/>
+          <submit: label="Create Reply"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+<def tag="index-for-user-page" polymorphic/>
+<def tag="index-for-user-page" for="Reply">
+  <page merge title="Replies for #{name :with => @user, :no_wrapper => true}">
+    <body: class="index-for-owner-page user reply" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@user"/></div>
+
+        <h2 param="heading"><Your with="&current_user"/> Replies</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Reply">
+  <page merge title="New Reply for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  reply" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Reply</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Reply"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== Site Pages ====== -->
+
+
+<def tag="index-page" for="Site">
+  <page merge title="Sites">
+    <body: class="index-page site" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Sites</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Site">
+  <page merge title="New Site">
+    <body: class="new-page site" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Site</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Site"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Site">
+  <page merge title="Site">
+
+    <body: class="show-page site" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Site</a>
+          </header>
+    
+          <section param="content-body">
+            <field-list fields="ip, status" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Site">
+  <page merge title="Edit Site">
+
+    <body: class="edit-page site" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Site" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="index-for-user-page" polymorphic/>
+<def tag="index-for-user-page" for="Site">
+  <page merge title="Sites for #{name :with => @user, :no_wrapper => true}">
+    <body: class="index-for-owner-page user site" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@user"/></div>
+
+        <h2 param="heading"><Your with="&current_user"/> Sites</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Site">
+  <page merge title="New Site for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  site" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Site</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Site"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== Task Pages ====== -->
+
+
+<def tag="index-page" for="Task">
+  <page merge title="Tasks">
+    <body: class="index-page task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Tasks</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Task">
+  <page merge title="New Task">
+    <body: class="new-page task" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Task</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Task">
+  <page merge title="Task">
+
+    <body: class="show-page task" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:project param="parent-link">&laquo; <name/></a>
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Task</a>
+          </header>
+    
+          <section param="content-body">
+            <field-list fields="status" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Task">
+  <page merge title="Edit Task">
+
+    <body: class="edit-page task" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Task" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="index-for-project-page" polymorphic/>
+<def tag="index-for-project-page" for="Task">
+  <page merge title="Tasks for #{name :with => @project, :no_wrapper => true}">
+    <body: class="index-for-owner-page project task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@project"/></div>
+        <h2 param="heading">Tasks</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-project-page" polymorphic/>
+<def tag="new-for-project-page" for="Task">
+  <page merge title="New Task for #{name :with => @project}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Task</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="project" method="post" param>
+          <field-list: skip="project"/>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+<def tag="index-for-user-page" polymorphic/>
+<def tag="index-for-user-page" for="Task">
+  <page merge title="Tasks for #{name :with => @user, :no_wrapper => true}">
+    <body: class="index-for-owner-page user task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@user"/></div>
+
+        <h2 param="heading"><Your with="&current_user"/> Tasks</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Task">
+  <page merge title="New Task for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Task</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== Ticket Pages ====== -->
+
+
+<def tag="index-page" for="Ticket">
+  <page merge title="Tickets">
+    <body: class="index-page ticket" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Tickets</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Ticket">
+  <page merge title="New Ticket">
+    <body: class="new-page ticket" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Ticket</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Ticket"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Ticket">
+  <page merge title="Ticket">
+
+    <body: class="show-page ticket" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Ticket</a>
+          </header>
+    
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="status, priority" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">Replies</h3>
+              
+              <collection:replies param/>
+
+              <a:replies action="new" if="&can_create?(@ticket.replies)" param="new-link">New Reply</a>
+            </section>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Ticket">
+  <page merge title="Edit Ticket">
+
+    <body: class="edit-page ticket" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Ticket" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="index-for-user-page" polymorphic/>
+<def tag="index-for-user-page" for="Ticket">
+  <page merge title="Tickets for #{name :with => @user, :no_wrapper => true}">
+    <body: class="index-for-owner-page user ticket" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@user"/></div>
+
+        <h2 param="heading"><Your with="&current_user"/> Tickets</h2>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Ticket">
+  <page merge title="New Ticket for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  ticket" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Ticket</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Ticket"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+  
+<!-- ====== User Pages ====== -->
+
+
+<def tag="index-page" for="User">
+  <page merge title="Users">
+    <body: class="index-page user" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Users</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="User">
+  <page merge title="New User">
+    <body: class="new-page user" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New User</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create User"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="User">
+  <page merge title="User">
+
+    <body: class="show-page user" param/>
+
+    <content: param>
+      <section-group param="content-body">
+        <section param="main-content">
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="administrator" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit User</a>
+          </header>
+    
+          <section param="content-body" with-flash-messages>
+            <field-list fields="email_address" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading"><Your/>Invoices</h3>
+              
+              <collection:invoices param/>
+
+              <a:invoices action="new" if="&can_create?(@user.invoices)" param="new-link">New Invoice</a>
+            </section>
+          </section>
+        </section>
+        
+        <aside param>
+          <preview-with-more:projects.recent param="preview-projects">
+            <heading:><Your with="&@user"/> Projects</heading:>
+            <more:>more</more:>
+          </preview-with-more>
+          <preview-with-more:sites.recent param="preview-sites">
+            <heading:><Your with="&@user"/> Sites</heading:>
+            <more:>more</more:>
+          </preview-with-more>
+          <preview-with-more:tickets.recent param="preview-tickets">
+            <heading:><Your with="&@user"/> Tickets</heading:>
+            <more:>more</more:>
+          </preview-with-more>
+        </aside>
+      </section-group>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="User">
+  <page merge title="Edit User">
+
+    <body: class="edit-page user" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This User" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="signup-page" polymorphic/>
+<def tag="signup-page" for="User">
+
+  <page title="Signup" merge>
+
+    <body: class="lifecycle-start-page signup-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Signup</h2>
+      </header>
+
+      <section param="content-body">
+        <signup-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="reset-password-page" polymorphic/>
+<def tag="reset-password-page" for="User">
+  <page title="Reset Password" merge>
+    
+    <body: class="lifecycle-transition-page reset-password-page" param/>
+    
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">Reset Password</h2>
+      </header>
+      
+      <section param="content-body">
+        <reset-password-form param="form"/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
