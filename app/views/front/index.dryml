@@ -13,8 +13,7 @@
 	   <collection:projects with="&current_user"><card without-creator-link/></collection> 
 	<a:projects action="new">New Project</a> 
 	</section>
-	<section with="&current_user" class="content-body" 
-	if="&logged_in?"> 
+	<section with="&current_user" class="content-body" if="&logged_in?"> 
 	  <h3>Your Tickets</h3> 
 	   <collection:tickets with="&current_user"><card without-creator-link/></collection> 
 	<a:tickets action="new">New Ticket</a> 

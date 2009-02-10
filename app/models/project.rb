@@ -14,7 +14,7 @@ class Project < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    acting_user.administrator? || acting_user.signed_up? 
+    acting_user.administrator? || user_is?(acting_user) 
   end
 
   def update_permitted?
@@ -26,7 +26,7 @@ class Project < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    acting_user.administrator? || acting_user == user
+    acting_user.administrator? || user_is?(acting_user)
   end
 
 end

@@ -4,9 +4,11 @@
  <content:>
 
 <section with="&current_user" class="content-body" if="&logged_in?"> 
-  <h3>Your Invoices</h3> 
-   <collection:invoices with="&current_user"><card without-creator-link/></collection> 
+  <h3>Tus facturas</h3> 
 <a:invoices action="new">New Invoice</a> 
+   <table-plus:invoices with="&current_user" fields="this, amount">
+<empty-message:>Sin facturas por el momento</empty-message:></table-plus>
+
 </section>
  
 

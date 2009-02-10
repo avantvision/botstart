@@ -4,6 +4,11 @@ class TicketsController < ApplicationController
 
   auto_actions :show, :edit, :update, :destroy 
 
+
     auto_actions_for :user, [:create, :new]
+    
+    
+  
+    
 
 end

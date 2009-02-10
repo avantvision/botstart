@@ -5,8 +5,11 @@
 
 <section with="&current_user" class="content-body" if="&logged_in?"> 
   <h3>Your Sites</h3> 
-   <collection:sites with="&current_user"><card without-creator-link/></collection> 
-<a:sites action="new">New Site</a> 
+   
+<a:sites action="new">New Site</a>
+
+<table-plus:sites with="&current_user" fields="this, ip, status">
+<empty-message:>No tienes ningun sitio registrado</empty-message:></table-plus>
 </section>
  
 

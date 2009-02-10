@@ -31,5 +31,8 @@ class Ticket < ActiveRecord::Base
   def view_permitted?(field)
     user == acting_user
   end
+  
+
+  
 
 end
