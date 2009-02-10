@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   has_many :tasks, :dependent => :destroy
   fields do
     name :string
+    status enum_string(:new, :in_process, :completed)
     timestamps
   end
 
