@@ -1,6 +1,5 @@
 <page title="Projects">
-
-  <body: class="projects-page"/>
+ <body: class="projects-page"/>
  <content:>
 
 <section with="&current_user" class="content-body" if="&logged_in?"> 

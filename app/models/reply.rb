@@ -4,7 +4,7 @@ class Reply < ActiveRecord::Base
   belongs_to :user, :dependent => :destroy, :creator => true
   belongs_to :ticket, :dependent => :destroy
   fields do
-    description :text
+    name :text
     timestamps
   end
 

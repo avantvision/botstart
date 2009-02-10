@@ -11,12 +11,14 @@
 /* Cubicle Blue */
 html, body {color: #193440; background: #E5E5E5;}
 .page-header {color: white; background: #000000;}
-.page-header .navigation.main-nav a {background: #FCFFF5; color:#000000; padding: 2;}
-.page-header .navigation.main-nav li.current a {background: #FCFFF4; color: #222;}
-.page-header .navigation.main-nav a:hover {background: #666;}
+.page-header .navigation.main-nav a {background: #666; color:#FFF;}
+.page-header .navigation.main-nav li.current a {background: #FCFFF5; color: #222;}
+.page-header .navigation.main-nav a:hover {
+	background: #FCFFF5;
+	color:#222;}
 .section.content {background: #FCFFF5;}
-.button {color: white; background: #5B8BA0;}
-.button:hover {background-color: #193440;}
+.button {color: white; background: #666;}
+.button:hover {background-color: #000;}
 .add-to-collection {background: #E6E7DE;}
 .aside { background: #E5E5E5;}
 
@@ -31,7 +33,7 @@ html, body {color: #193440; background: #E5E5E5;}
 
 
 body {
-	width: 960px;  
+	width: 100%;  
 	margin: 0 auto 20px;
 	font: 12px "Lucida Grande", "Trebuchet MS", Arial, sans-serif; line-height: 18px;
 }

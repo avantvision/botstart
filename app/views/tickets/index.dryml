@@ -5,9 +5,12 @@
 
 <section with="&current_user" class="content-body" if="&logged_in?"> 
   <h3>Tus Tickets</h3> 
-<a:tickets action="new">New Ticket</a> 
+<div align ="right"><a:tickets action="new">Nuevo Ticket</a> </div>
+ 
+ 
 <table-plus:tickets with="&current_user" fields="this, status">
-<empty-message:>No tasks match your criteria</empty-message:></table-plus> 
+<search-form:></search-form:>
+<empty-message:>Sin tickets</empty-message:></table-plus> 
 
 </section>
  

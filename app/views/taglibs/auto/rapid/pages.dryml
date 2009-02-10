@@ -5,7 +5,10 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs>
     <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Invoice">Invoices</nav-item>
     <nav-item with="&Project">Projects</nav-item>
+    <nav-item with="&Site">Sites</nav-item>
+    <nav-item with="&Ticket">Tickets</nav-item>
   </navigation>
 </def>
 
@@ -407,7 +410,6 @@
           </header>
     
           <section param="content-body">
-            <view:description param="description"/>
           </section>
     </content:>
     
