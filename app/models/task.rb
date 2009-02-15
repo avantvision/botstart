@@ -2,8 +2,8 @@ class Task < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
   
-  belongs_to :user, :dependent => :destroy, :creator => true
-  belongs_to :project, :dependent => :destroy
+  belongs_to :user, :creator => true
+  belongs_to :project
   fields do
     name :string
     status enum_string(:new, :in_process, :completed)

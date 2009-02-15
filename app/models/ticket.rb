@@ -2,7 +2,7 @@ class Ticket < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
   
-  belongs_to :user, :dependent => :destroy, :creator => true
+  belongs_to :user, :creator => true
   has_many :replies, :dependent => :destroy
 
   fields do
@@ -25,7 +25,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def destroy_permitted?
-    acting_user.administrator?
+     acting_user.administrator?
   end
 
   def view_permitted?(field)

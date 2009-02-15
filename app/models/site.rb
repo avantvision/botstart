@@ -2,7 +2,7 @@ class Site < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
  
-  belongs_to :user, :dependent => :destroy, :creator => true
+  belongs_to :user, :creator => true
   fields do
     name    :string
     ip :string
