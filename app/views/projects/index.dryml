@@ -4,9 +4,10 @@
 
 <section with="&current_user" class="content-body" if="&logged_in?"> 
   <h3>Your Projects</h3> 
-<a:projects action="new">New Project</a>
+<div align="right">
+<a:projects action="new"><image src="../images/newproject.png" /></a></div>
    <table-plus:projects with="&current_user" fields="this, status, tasks.count">
-<heading:>Proyecto, Estado, Tareas</heading:>
+
 <search-form:></search-form:>
 <empty-message:>No tienes ningun proyecto registrado</empty-message:></table-plus>
 
