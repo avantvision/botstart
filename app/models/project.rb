@@ -20,7 +20,7 @@ class Project < ActiveRecord::Base
   end
 
   def update_permitted?
-    user_is?(acting_user) || acting_user.administrator?
+   acting_user.administrator? || user_is?(acting_user) 
   end
 
   def destroy_permitted?

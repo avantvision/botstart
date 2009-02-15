@@ -1,3 +1,16 @@
-<index-page>
-  <table-plus: fields="this, email_address"/>
-</index-page>
+<page title="Users">
+
+  <body: class="users-page"/>
+ <content:>
+<section class="content-body" >
+	<h1>Users Administration</h1>
+<p>	There <count prefix="are"/></p>
+<div align ="right"> <a action="new" to="&model" /> </div>
+ 
+<table-plus with="&@users" fields="this,  projects.count, sites.count, invoices.count, tickets.count">
+<search-form:></search-form:>
+<empty-message:>Sin tickets</empty-message:>
+</table-plus>
+</section>
+   </content:>
+</page>

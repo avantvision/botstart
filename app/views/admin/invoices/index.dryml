@@ -1,0 +1,16 @@
+<page title="Invoices">
+
+  <body: class="invoices-page"/>
+ <content:>
+<section class="content-body" >
+	<h1>Invoices Administration</h1>
+<p>	There <count prefix="are"/></p>
+<div align ="right"> <a action="new" to="&model" /> </div>
+ 
+<table-plus with="&@invoices" fields="this, user, status, amount">
+<search-form:></search-form:>
+<empty-message:>Sin sitios</empty-message:>
+</table-plus>
+</section>
+   </content:>
+</page>

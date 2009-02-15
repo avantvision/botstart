@@ -128,6 +128,8 @@
       
       <section param="content-body">
 
+        <a action="new" to="&model" param="new-link"/>      
+
         <page-nav param="top-page-nav"/>
       
         <collection param/>
@@ -170,6 +172,8 @@
             <field-names-where-true fields="" param/>
 
             <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Project</a>
           </header>
     
           <section param="content-body">

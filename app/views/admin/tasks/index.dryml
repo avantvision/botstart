@@ -1,0 +1,16 @@
+<page title="Tasks">
+
+  <body: class="tasks-page"/>
+ <content:>
+<section class="content-body" >
+	<h1>Tasks Administration</h1>
+<p>	There <count prefix="are"/></p>
+<div align ="right"> <a action="new" to="&model" /> </div>
+ 
+<table-plus with="&@tasks" fields="this,  project, user, status">
+<search-form:></search-form:>
+<empty-message:>Sin tickets</empty-message:>
+</table-plus>
+</section>
+   </content:>
+</page>

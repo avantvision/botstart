@@ -1,0 +1,16 @@
+<page title="Sites">
+
+  <body: class="Sites-page"/>
+ <content:>
+<section class="content-body" >
+	<h1>Sites Administration</h1>
+<p>	There <count prefix="are"/></p>
+<div align ="right"> <a action="new" to="&model" /> </div>
+ 
+<table-plus with="&@sites" fields="this, user, status, ip">
+<search-form:></search-form:>
+<empty-message:>Sin sitios</empty-message:>
+</table-plus>
+</section>
+   </content:>
+</page>

@@ -1,0 +1,16 @@
+<page title="Tickets">
+
+  <body: class="tickets-page"/>
+ <content:>
+<section class="content-body" >
+	<h1>Ticket Administration</h1>
+<p>	There <count prefix="are"/></p>
+<div align ="right"> <a action="new" to="&model" /> </div>
+ 
+<table-plus with="&@tickets" fields="this, status, user, replies.count">
+<search-form:></search-form:>
+<empty-message:>Sin tickets</empty-message:>
+</table-plus>
+</section>
+   </content:>
+</page>
