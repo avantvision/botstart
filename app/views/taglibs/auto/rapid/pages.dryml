@@ -107,30 +107,6 @@
 
 
 
-<def tag="new-for-user-page" polymorphic/>
-<def tag="new-for-user-page" for="Invoice">
-  <page merge title="New Invoice for #{name :with => @user}">
-    
-    <body: class="new-for-owner-page  invoice" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">New Invoice</h2>
-        <h3 param="subheading">For: <a with="&@user"/></h3>
-      </header>
-      
-      <section param="content-body">
-        <form owner="user" method="post" param>
-          <field-list: skip="user"/>
-          <submit: label="Create Invoice"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-
 
   
 <!-- ====== ProjectMembership Pages ====== -->
@@ -997,8 +973,6 @@
               <h3 param="collection-heading"><Your/>Invoices</h3>
               
               <collection:invoices param/>
-
-              <a:invoices action="new" if="&can_create?(@user.invoices)" param="new-link">New Invoice</a>
             </section>
           </section>
         </section>

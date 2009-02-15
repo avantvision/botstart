@@ -3,13 +3,10 @@
 <def tag="card" for="Invoice">
   <card class="invoice" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
-      <div param="actions">
-        <a action="edit" if="&can_edit?" param="edit-link">Edit</a>
-      </div>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <view:user param="creator"/>
+      <a:user param="creator-link"/>
     </body:>
   </card>
 </def>
@@ -17,14 +14,10 @@
 <def tag="card" for="Project">
   <card class="project" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
-      <div param="actions">
-        <a action="edit" if="&can_edit?" param="edit-link">Edit</a>
-      </div>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <view:description param="content"/>
-      <view:user param="creator"/>
+      <a:user param="creator-link"/>
       <count:tasks param/>
     </body:>
   </card>
@@ -41,10 +34,10 @@
 <def tag="card" for="Reply">
   <card class="reply" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <view:user param="creator"/>
+      <a:user param="creator-link"/>
     </body:>
   </card>
 </def>
@@ -52,13 +45,10 @@
 <def tag="card" for="Site">
   <card class="site" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
-      <div param="actions">
-        <a action="edit" if="&can_edit?" param="edit-link">Edit</a>
-      </div>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <view:user param="creator"/>
+      <a:user param="creator-link"/>
     </body:>
   </card>
 </def>
@@ -66,13 +56,10 @@
 <def tag="card" for="Task">
   <card class="task" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
-      <div param="actions">
-        <a action="edit" if="&can_edit?" param="edit-link">Edit</a>
-      </div>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <view:user param="creator"/>
+      <a:user param="creator-link"/>
     </body:>
   </card>
 </def>
@@ -80,14 +67,10 @@
 <def tag="card" for="Ticket">
   <card class="ticket" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
-      <div param="actions">
-        <a action="edit" if="&can_edit?" param="edit-link">Edit</a>
-      </div>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <view:description param="content"/>
-      <view:user param="creator"/>
+      <a:user param="creator-link"/>
       <count:replies param/>
     </body:>
   </card>
@@ -96,10 +79,7 @@
 <def tag="card" for="User">
   <card class="user" param="default" merge>
     <header: param>
-      <h4 param="heading"><name/></h4>
-      <div param="actions">
-        <a action="edit" if="&can_edit?" param="edit-link">Edit</a>
-      </div>
+      <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
       <count:invoices param/>

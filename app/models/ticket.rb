@@ -21,7 +21,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def update_permitted?
-  !user_changed?  
+  !user_changed?
   end
 
   def destroy_permitted?
@@ -29,7 +29,7 @@ class Ticket < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    user == acting_user
+    user == acting_user || acting_user.administrator?
   end
   
 

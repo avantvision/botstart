@@ -10,4 +10,13 @@
 
 <def tag="app-name">My Bot - Admin</def>
 
-
+<def tag="main-nav">
+  <navigation class="main-nav">
+    <nav-item href="/admin/users">Users</nav-item>
+    <nav-item href="/admin/projects">Projects</nav-item>
+    <nav-item href="/admin/tasks">Tasks</nav-item>
+    <nav-item href="/admin/tickets">Tickets</nav-item>
+    <nav-item href="/admin/sites">Sites</nav-item>
+    <nav-item href="/admin/invoices">Invoices</nav-item>
+  </navigation>  
+</def>

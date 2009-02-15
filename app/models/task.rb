@@ -14,7 +14,7 @@ class Task < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    user_is?(acting_user)
+    user_is?(acting_user) || acting_user.administrator?
   end
 
   def update_permitted?
@@ -26,7 +26,7 @@ class Task < ActiveRecord::Base
   end
 
   def view_permitted?(field)
-    project.viewable_by?(acting_user)
+    user_is?(acting_user) || acting_user.administrator?
   end
 
 end

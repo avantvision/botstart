@@ -12,7 +12,7 @@ class Reply < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    user_is?(acting_user)
+    user_is?(acting_user) || acting_user.administrator?
   end
 
   def update_permitted?

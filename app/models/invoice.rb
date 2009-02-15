@@ -14,7 +14,7 @@ class Invoice < ActiveRecord::Base
   # --- Permissions --- #
 
   def create_permitted?
-    acting_user.administrator? 
+     user == acting_user || acting_user.administrator?
   end
 
   def update_permitted?
