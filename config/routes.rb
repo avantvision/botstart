@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.site_search  'search', :controller => 'front', :action => 'search'
   map.root :controller => 'front', :action => 'index'
+  map.admin 'admin', :controller => 'admin/admin_site', :action => 'index'
 
   Hobo.add_routes(map)
 
