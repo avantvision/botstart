@@ -2,9 +2,11 @@ class Invoice < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
   belongs_to :user, :creator => true
+  
   fields do
     title  :string
     amount :integer
+    status enum_string(:unpaid, :paid)
     timestamps
   end
 

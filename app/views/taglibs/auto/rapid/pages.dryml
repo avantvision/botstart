@@ -78,7 +78,7 @@
           </header>
     
           <section param="content-body">
-            <field-list fields="amount" param/>
+            <field-list fields="amount, status" param/>
           </section>
     </content:>
     
@@ -285,6 +285,7 @@
           </header>
     
           <section param="content-body">
+            <view:description param="description"/>
             <field-list fields="status" param/>
             <section param="collection-section">
               <h3 param="collection-heading">Tasks</h3>
@@ -724,30 +725,6 @@
   </page>
 </def>
 
-
-
-<def tag="new-for-user-page" polymorphic/>
-<def tag="new-for-user-page" for="Task">
-  <page merge title="New Task for #{name :with => @user}">
-    
-    <body: class="new-for-owner-page  task" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">New Task</h2>
-        <h3 param="subheading">For: <a with="&@user"/></h3>
-      </header>
-      
-      <section param="content-body">
-        <form owner="user" method="post" param>
-          <field-list: skip="user"/>
-          <submit: label="Create Task"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
 <def tag="index-for-project-page" polymorphic/>
 <def tag="index-for-project-page" for="Task">
   <page merge title="Tasks for #{name :with => @project, :no_wrapper => true}">
@@ -791,6 +768,30 @@
       <section param="content-body">
         <form owner="project" method="post" param>
           <field-list: skip="project"/>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Task">
+  <page merge title="New Task for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Task</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
           <submit: label="Create Task"/>
         </form>
       </section>

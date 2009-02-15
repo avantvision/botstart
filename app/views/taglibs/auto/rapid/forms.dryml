@@ -3,7 +3,7 @@
 <def tag="form" for="Invoice">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, amount, user" param/>
+    <field-list fields="title, amount, status, user" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>
@@ -27,7 +27,7 @@
 <def tag="form" for="Project">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, status, tasks, user" param/>
+    <field-list fields="name, description, status, tasks, user" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>
