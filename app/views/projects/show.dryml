@@ -34,7 +34,10 @@
             <section class="collection-section">
               <h3 class="collection-heading">Project Files</h3>
               
-              <collection:projectattachments>
+             <collection:projectattachments>
+			<card: without-creator-link >
+			<heading:><a><view:pattachment_file_name /></a></heading:>
+			</card:>
 			<empty-message:>No files in this project </empty-message:>              	
 
               </collection:projectattachments>

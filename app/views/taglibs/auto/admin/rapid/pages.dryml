@@ -207,6 +207,30 @@
 
 
 
+<def tag="new-for-project-page" polymorphic/>
+<def tag="new-for-project-page" for="Projectattachment">
+  <page merge title="New Projectattachment for #{name :with => @project}">
+    
+    <body: class="new-for-owner-page  projectattachment" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Projectattachment</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="project" method="post" param>
+          <field-list: skip="project"/>
+          <submit: label="Create Projectattachment"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
 
   
 <!-- ====== Project Pages ====== -->
@@ -282,6 +306,8 @@
               <h3 param="collection-heading">Projectattachments</h3>
               
               <collection:projectattachments param/>
+
+              <a:projectattachments action="new" if="&can_create?(@project.projectattachments)" param="new-link">New Projectattachment</a>
             </section>
           </section>
         </section>
@@ -725,6 +751,30 @@
       </section>
     </content:>
     
+  </page>
+</def>
+
+
+
+<def tag="new-for-project-page" polymorphic/>
+<def tag="new-for-project-page" for="Task">
+  <page merge title="New Task for #{name :with => @project}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Task</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="project" method="post" param>
+          <field-list: skip="project"/>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
   </page>
 </def>
 
