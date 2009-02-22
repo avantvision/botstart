@@ -12,10 +12,22 @@
 
 
 
+<def tag="form" for="Projectattachment">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="pattachment_file_name, pattachment_content_type, pattachment_file_size, project, user" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="Project">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, description, status, tasks, user" param/>
+    <field-list fields="name, description, status, projectattachments, tasks, user" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>
@@ -39,7 +51,7 @@
 <def tag="form" for="Site">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, ip, status, user" param/>
+    <field-list fields="name, url, status, user" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>
@@ -75,7 +87,7 @@
 <def tag="form" for="User">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, email_address, administrator, invoices, projects, replies, sites, tasks, tickets" param/>
+    <field-list fields="name, email_address, administrator, invoices, projectattachments, projects, replies, sites, tasks, tickets" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>

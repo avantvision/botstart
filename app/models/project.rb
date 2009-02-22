@@ -5,12 +5,17 @@ class Project < ActiveRecord::Base
 
   belongs_to :user, :creator => true
   has_many :tasks, :dependent => :destroy
+  has_many :projectattachments, :dependent => :destroy
+
   fields do
     name :string
     description :text
     status enum_string(:new, :working, :completed)
     timestamps
   end
+  
+  # --- Validation--- #
+  validates_presence_of [:name, :description]
 
 
   # --- Permissions --- #

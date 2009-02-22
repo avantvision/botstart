@@ -7,9 +7,9 @@
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Invoice">Invoices</nav-item>
     <nav-item with="&Project">Projects</nav-item>
+    <nav-item with="&Projectattachment">Projectattachments</nav-item>
     <nav-item with="&Reply">Replies</nav-item>
     <nav-item with="&Site">Sites</nav-item>
-    <nav-item with="&Task">Tasks</nav-item>
   </navigation>
 </def>
 
@@ -112,6 +112,103 @@
 
 
   
+<!-- ====== Projectattachment Pages ====== -->
+
+
+<def tag="index-page" for="Projectattachment">
+  <page merge title="Projectattachments">
+    <body: class="index-page projectattachment" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Projectattachments</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>      
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Projectattachment">
+  <page merge title="New Projectattachment">
+    <body: class="new-page projectattachment" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Projectattachment</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Projectattachment"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Projectattachment">
+  <page merge title="Projectattachment">
+
+    <body: class="show-page projectattachment" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:project param="parent-link">&laquo; <name/></a>
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Projectattachment</a>
+          </header>
+    
+          <section param="content-body">
+            <field-list fields="pattachment_file_name, pattachment_content_type, pattachment_file_size" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Projectattachment">
+  <page merge title="Edit Projectattachment">
+
+    <body: class="edit-page projectattachment" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Projectattachment" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+
+
+  
 <!-- ====== Project Pages ====== -->
 
 
@@ -166,6 +263,8 @@
     <body: class="show-page project" param/>
 
     <content: param>
+      <section-group param="content-body">
+        <section param="main-content">
           <header param="content-header">
             <h2 param="heading"><name/></h2>
 
@@ -176,15 +275,23 @@
             <a action="edit" if="&can_edit?" param="edit-link">Edit Project</a>
           </header>
     
-          <section param="content-body">
+          <section param="content-body" with-flash-messages>
             <view:description param="description"/>
             <field-list fields="status" param/>
             <section param="collection-section">
-              <h3 param="collection-heading">Tasks</h3>
+              <h3 param="collection-heading">Projectattachments</h3>
               
-              <collection:tasks param/>
+              <collection:projectattachments param/>
             </section>
           </section>
+        </section>
+        
+        <aside param>
+          <preview-with-more:tasks.recent param="preview-tasks">
+            <more:>more</more:>
+          </preview-with-more>
+        </aside>
+      </section-group>
     </content:>
     
   </page>
@@ -497,7 +604,7 @@
           </header>
     
           <section param="content-body">
-            <field-list fields="ip, status" param/>
+            <field-list fields="url, status" param/>
           </section>
     </content:>
     

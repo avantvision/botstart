@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090215042549) do
+ActiveRecord::Schema.define(:version => 20090220213855) do
 
   create_table "invoices", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20090215042549) do
   create_table "project_memberships", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "projectattachments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "pattachment_file_name"
+    t.string   "pattachment_content_type"
+    t.string   "pattachment_file_size"
   end
 
   create_table "projects", :force => true do |t|
@@ -44,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20090215042549) do
 
   create_table "sites", :force => true do |t|
     t.string   "name"
-    t.string   "ip"
+    t.string   "url"
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"

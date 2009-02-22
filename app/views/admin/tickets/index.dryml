@@ -7,7 +7,8 @@
 <p>	There <count prefix="are"/></p>
 <div align ="right"> <a action="new" to="&model" /> </div>
  
-<table-plus with="&@tickets" fields="this, status, user, replies.count">
+<table-plus with="&@tickets" fields="this, status, user, replies.count, priority">
+
 <search-form:></search-form:>
 <empty-message:>Sin tickets</empty-message:>
 </table-plus>

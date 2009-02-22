@@ -3,9 +3,11 @@
 <include src="taglibs/auto/rapid/cards"/>
 <include src="taglibs/auto/rapid/pages"/>
 <include src="taglibs/auto/rapid/forms"/>
+<include src="paperclip" plugin="paperclip_with_hobo"/>
 
 <set-theme name="clean"/>
 
 <def tag="app-name">My Bot</def>
+
 
 

@@ -12,6 +12,9 @@ class Ticket < ActiveRecord::Base
     priority  enum_string(:high, :medium, :low)
     timestamps
   end
+  
+  # --- Validation--- #
+  validates_presence_of [:name, :description]
 
 
   # --- Permissions --- #

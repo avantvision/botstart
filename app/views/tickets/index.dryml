@@ -8,7 +8,7 @@
 <div align ="right"><a:tickets action="new">Nuevo Ticket</a> </div>
  
  
-<table-plus:tickets with="&current_user" fields="this, status">
+<table-plus:tickets with="&current_user" fields="this, priority, status">
 <search-form:></search-form:>
 <empty-message:>Sin tickets</empty-message:></table-plus> 
 

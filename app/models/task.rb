@@ -4,11 +4,17 @@ class Task < ActiveRecord::Base
   
   belongs_to :user, :creator => true
   belongs_to :project
+ 
   fields do
     name :string
     status enum_string(:new, :in_process, :completed)
     timestamps
+    
   end
+  
+ validates_presence_of :name
+  
+   
 
 
   # --- Permissions --- #

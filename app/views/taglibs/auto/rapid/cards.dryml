@@ -18,7 +18,7 @@
     </header:>
     <body: param>
       <a:user param="creator-link"/>
-      <count:tasks param/>
+      <count:projectattachments param/>
     </body:>
   </card>
 </def>
@@ -31,6 +31,17 @@
         <delete-button label="X" param/>
       </div>
     </header:>
+  </card>
+</def>
+
+<def tag="card" for="Projectattachment">
+  <card class="projectattachment" param="default" merge>
+    <header: param>
+      <h4 param="heading"><a><name/></a></h4>
+    </header:>
+    <body: param>
+      <a:user param="creator-link"/>
+    </body:>
   </card>
 </def>
 

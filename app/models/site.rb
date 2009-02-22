@@ -5,11 +5,12 @@ class Site < ActiveRecord::Base
   belongs_to :user, :creator => true
   fields do
     name    :string
-    ip :string
+    url :string
     status  enum_string(:active, :disabled)
     timestamps
   end
-
+   # --- Validation--- #
+   validates_presence_of [:name, :url]
 
   # --- Permissions --- #
 

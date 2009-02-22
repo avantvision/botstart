@@ -1,0 +1,15 @@
+<new-page>
+
+
+  <h2>hola</h2>
+  <form enctype="multipart/form-data" >
+    <error-messages />
+
+<input:pattachment/>
+
+    <div class="actions">
+      <submit label="Save" /><or-cancel class="cancel"/>
+    </div>
+  </form>
+</new-page>
+  

@@ -8,7 +8,7 @@
    
 <a:sites action="new">New Site</a>
 
-<table-plus:sites with="&current_user" fields="this, ip, status">
+<table-plus:sites with="&current_user" fields="this, url, status">
 <empty-message:>No tienes ningun sitio registrado</empty-message:></table-plus>
 </section>
  
