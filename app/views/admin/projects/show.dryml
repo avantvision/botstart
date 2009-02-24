@@ -19,7 +19,7 @@
           </header>
     
           <section class="content-body" with-flash-messages>
-            <view:description class="description"/>
+            <editor:description class="description"/>
             
 
 

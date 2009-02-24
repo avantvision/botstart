@@ -11,6 +11,7 @@
 
 <search-form:></search-form:>
 <empty-message:>Sin tickets</empty-message:>
+<controls:/>
 </table-plus>
 </section>
    </content:>

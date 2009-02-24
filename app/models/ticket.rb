@@ -13,6 +13,8 @@ class Ticket < ActiveRecord::Base
     timestamps
   end
   
+  has_attached_file :ticketfile
+  
   # --- Validation--- #
   validates_presence_of [:name, :description]
 

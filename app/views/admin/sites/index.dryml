@@ -10,6 +10,7 @@
 <table-plus with="&@sites" fields="this, user, status, ip">
 <search-form:></search-form:>
 <empty-message:>Sin sitios</empty-message:>
+<controls:/>
 </table-plus>
 </section>
    </content:>

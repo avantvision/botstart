@@ -45,6 +45,8 @@ h4 {margin: 10px 0 5px;  font-size: 14px; line-height: 14px;}
 h5 {margin: 10px 0 5px;  font-size: 12px; line-height: 12px;}
 h6 {margin: 10px 0 5px;  font-size: 10px; line-height: 10px;}
 
+
+
 li {margin-left: 20px;}
 
 a {
@@ -109,6 +111,7 @@ form .actions input { margin: 0; }
 	padding: 8px 20px 8px 40px;
 	border: 1px solid #444;
 	background: black url(../images/spinner.gif) no-repeat 10px 8px;
+	color: white;
 	
 }
 
@@ -236,7 +239,7 @@ form .actions {margin: 30px 0; width: 100%; text-align: center;}
 }
 .card .datetime {color: #666;}
 .card .actions { position:absolute; right: 10px; top: 10px; }
-div.ordering-handle { float: left; background: #ccc; color: white; margin-right: 5px; cursor: move; padding: 0 2px;}
+div.ordering-handle { float: right; background: #ccc; color: white; margin-right: 5px; cursor: move; padding: 0 2px;}
 
 .card.content.with-owner {
 	padding: 0; margin: 10px 0 30px; border: none;
@@ -258,6 +261,39 @@ ul.collection > li { margin-left: 0; list-style: none;}
 
 .collection-section h3 {
 	padding: 15px 0; margin-bottom: 20px; border-bottom: 1px dotted #888;
+}
+
+.collection-section h3 {
+	padding: 15px 0;
+	margin-bottom: 20px; 
+	border-bottom: 1px dotted #888;
+}
+.mytasks-section {
+	margin: 10px 0 5px;  
+	font-size: 16px; 
+	line-height: 16px;
+	padding: 15px 0;
+	margin-bottom: 20px; 
+	margin: 10px 0 5px;  
+}
+
+.separator-section {
+	border-bottom: 1px dotted #888;
+
+}
+
+.nocss {
+	border-style: none;
+}
+
+.nocss a {
+	border-style: none;
+	
+}
+
+.nocss a:hover
+{
+	border-style: none;
 }
 
 .table-plus .header {height: 100%; overflow: hidden;}

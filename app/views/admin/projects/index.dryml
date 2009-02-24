@@ -7,9 +7,12 @@
 <p>	There <count prefix="are"/></p>
 <div align ="right"> <a action="new" to="&model" /> </div>
  
-<table-plus with="&@projects" fields="this,  user, tasks.count, status">
+<table-plus with="&@projects" fields="this,  user, tasks.count, projectattachments.count, status">
 <search-form:></search-form:>
 <empty-message:>Sin tickets</empty-message:>
+<tasks-count-heading:>Tasks</tasks-count-heading:>
+<projectattachments-count-heading:>Files</projectattachments-count-heading:>
+<controls:/>
 </table-plus>
 </section>
    </content:>

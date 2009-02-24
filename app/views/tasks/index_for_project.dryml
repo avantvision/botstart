@@ -1,0 +1,30 @@
+<def tag="index-page" for="Task">
+  <page merge title="Projects">
+    <body: class="project-page" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Tasks for: <a with="&@project"/></h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+
+      </header>
+      
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+      
+       
+		<table-plus with="&@tasks" fields="this, completed, project ">
+		<search-form:></search-form:>
+		 <name-view:><view:name/></name-view:>
+		<empty-message:>Sin tickets</empty-message:>
+		<controls:/>
+		</table-plus>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+<index-page/>

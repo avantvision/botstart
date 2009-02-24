@@ -4,10 +4,11 @@ class Task < ActiveRecord::Base
   
   belongs_to :user, :creator => true
   belongs_to :project
+  acts_as_list :scope => :project
  
   fields do
     name :string
-    status enum_string(:new, :in_process, :completed)
+    completed :boolean
     timestamps
     
   end

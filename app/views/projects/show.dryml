@@ -1,42 +1,93 @@
-<page title="Project">
+<def tag="card" for="Task">
+  <card class="task" param="default" merge>
+    <table width="100%">
+	<tr>
+		<td width="70%">
+      <boolean-checkbox-editor:completed message="Updating Task">
+<message>Updating Task</message>
+</boolean-checkbox-editor>
+<editor:name/>
+		</td>
+		<td>
 
-    <body: class="show-page project"/>
+		</td>
+	</tr>
+	</table>
+
+  </card>
+</def>
+
+
+
+<page title="Projects">
+
+  <body: class="projects-page"/>
 
 
     <content:>
       <section-group class="content-body">
         <section class="main-content">
           <header class="content-header">
-            <h2><name/></h2>
-
-
-
-           
-
-           
-
-            <a action="edit" if="&can_edit?" class="edit-link">Edit Project</a>
+			<table width="100%">
+							<tr valign="middle">
+								<td width="85%" height="55" >
+			            <h2 class="heading"><editor:name/></h2>
+			</td>
+			<td height="55" align="center">
+						<a action="edit" if="&can_edit?" class="edit-link">Edit Project</a>			</td>
+			  </tr>
+						</table>
           </header>
     
-          <section class="content-body" with-flash-messages>
-            <view:description class="description"/>
-            
-
+          <section class="content-body">
+	<flash-messages/>
+	<table width="100%">
+		<tr>
+			<td width="85%" >
+	   <editor:description class="description"/>
+			</td>
+			<td>
+       
+            </td>
+		</tr>
+	</table>
 
 			<section class="collection-section">
-              <h3 class="collection-heading">Project Tasks</h3>
-              
-              <collection:tasks> <card without-creator-link/></collection> 
+					
+					
+			<table width="100%">
+			<tr>
+			<td width="70%">
+              <p class="mytasks-section">Project Tasks</p>
+			</td>
+			<td>
+				<div align="right">
+				              <a:tasks action="new" if="&can_create?(@project.tasks)" class="nocss"><image src="plus.png" border="0" alt="New task for this project" title="New task for this project"/></a></div>
+				</td>
+				</tr>
+				</table>
+         <p class="separator-section"/>
+           <sortable-collection:tasks part="tasks"><controls:/></sortable-collection>
+
+		 
+	
+		  <form with="&@project.tasks">
+		    <error-messages />
+		    <field-list fields="name" />
+		    <div class="actions">
+		      <submit label="Save"/><or-cancel class="cancel"/>
+		    </div>
+		  </form>
+	
 			
-<div align="right">
-              <a:tasks action="new" if="&can_create?(@project.tasks)" class="new-link">New Task</a></div>
+
             </section>
             <section class="collection-section">
               <h3 class="collection-heading">Project Files</h3>
               
              <collection:projectattachments>
 			<card: without-creator-link >
-			<heading:><a><view:pattachment_file_name /></a></heading:>
+			<a><view:pattachment_file_name /></a>
 			</card:>
 			<empty-message:>No files in this project </empty-message:>              	
 
@@ -59,6 +110,8 @@
 			<li> <a:tasks action="new" if="&can_create?(@project.tasks)" class="new-link">New Task</a></li>
 			<li> <a:projectattachments action="new" if="&can_create?(@project.projectattachments)" class="new-link">New attachment</a></li>
 			</ul>
+	<p>Project Status</p>
+	<editor:status class="status"/>  
 			
 	<field-names-where-true fields="" />
      

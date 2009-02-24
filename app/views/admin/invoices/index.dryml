@@ -9,7 +9,8 @@
  
 <table-plus with="&@invoices" fields="this, user, status, amount">
 <search-form:></search-form:>
-<empty-message:>Sin sitios</empty-message:>
+<empty-message:>No invoices found</empty-message:>
+<controls:/>
 </table-plus>
 </section>
    </content:>

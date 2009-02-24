@@ -1,7 +1,7 @@
 <!-- Global taglib - these tags are shared across all subsites -->
 
 <include src="paperclip" plugin="paperclip_with_hobo"/>
-
+<include src="hoboyui" plugin="hoboyui"/>
 
 
 <def tag="form" for="Projectattachment">
@@ -40,5 +40,188 @@
           </section>
     </content:>
     
+  </page>
+</def>
+
+<def tag="form" for="Ticket">
+  <form merge param="default" enctype="multipart/form-data" >
+    <error-messages param/>
+    <field-list fields="name, description, status, priority" param/>
+<table class="field-list">
+	<tr>
+		<td>
+			<b>Archivo adjunto</b>
+		</td>
+		<td> 
+			<input:ticketfile />
+		</td>
+	</tr>
+</table>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+<def tag="show-page" for="Ticket">
+  <page merge title="Ticket">
+
+    <body: class="show-page ticket" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Ticket</a>
+          </header>
+    
+          <section param="content-body">
+            <view:description param="description"/>
+         <!--<field-list fields="status, priority, ticketfile_file_name" param/>-->
+	   <table class="field-list">
+
+	          <tr>
+	        <th class="status-label">
+	          Status:
+	        </th>
+	        <td class="status-view">
+
+	  <span class="status-tag view ticket-status "><view:status/></span>
+
+
+	        </td>
+	      </tr>
+
+	          <tr>
+	        <th class="priority-label">
+	          Priority:
+	        </th>
+	        <td class="priority-view">
+
+	  <span class="priority-tag view ticket-priority "><view:priority/></span>
+
+
+	        </td>
+	      </tr>
+	
+	          <tr>
+	        <th class="ticketfile-file-name-label">
+	          Ticket attachments:
+	        </th>
+	        <td class="ticketfile-file-name-view">
+			<view:ticketfile_file_name/>
+
+
+	        </td>
+	      </tr>
+
+
+	  </table>
+            <section param="collection-section">
+              <h3 param="collection-heading">Replies</h3>
+              
+              <collection:replies param/>
+
+              <a:replies action="new" if="&can_create?(@ticket.replies)" param="new-link">New Reply</a>
+            </section>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="nil-view">Not available-</def>
+
+
+<def tag="new-for-project-page" polymorphic/>
+<def tag="new-for-project-page" for="Task">
+  <page merge title="New Task for #{name :with => @project}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Task</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="project" method="post" param>
+          <field-list: skip="project, completed, position"/>
+	<hidden-id-field:/>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+
+<def tag="show-page" for="Task">
+  <page merge title="Task">
+
+    <body: class="show-page task" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:project param="parent-link">&laquo; <name/></a>
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="completed" param/>
+
+  <boolean-checkbox-editor:completed>
+<message:>Updating Task...</message:>
+</boolean-checkbox-editor>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Task</a>
+          </header>
+    
+          <section param="content-body">
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+<def tag="form" for="Task">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, completed" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Project">
+  <page merge title="New Project for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  project" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Project</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user, status"/>
+          <submit: label="Create Project"/>
+        </form>
+      </section>
+    </content:>
   </page>
 </def>

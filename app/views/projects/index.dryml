@@ -5,10 +5,14 @@
 <section with="&current_user" class="content-body" if="&logged_in?"> 
   <h3>Your Projects</h3> 
 <a:projects action="new">New Project</a>
-   <table-plus:projects with="&current_user" fields="this, status, tasks.count">
+   <table-plus:projects with="&current_user" fields="this, status, tasks.count, projectattachments.count">
 <heading:>Proyecto, Estado, Tareas</heading:>
+<tasks-count-heading:>Tasks</tasks-count-heading:>
+<projectattachments-count-heading:>Files</projectattachments-count-heading:>
 <search-form:></search-form:>
-<empty-message:>No tienes ningun proyecto registrado</empty-message:></table-plus>
+<empty-message:>No tienes ningun proyecto registrado</empty-message:>
+<controls:/>
+</table-plus>
 
 </section>
  

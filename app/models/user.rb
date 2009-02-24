@@ -7,9 +7,9 @@ class User < ActiveRecord::Base
   has_many :projects, :dependent => :destroy, :foreign_key => "user_id"
   has_many :sites, :dependent => :destroy, :foreign_key => "user_id"
   has_many :invoices, :dependent => :destroy, :foreign_key => "user_id"
-  has_many :replies, :source => :tickets
-  has_many :tasks, :source => :projects
-  has_many :projectattachments, :source => :projects
+  has_many :replies, :source => :tickets, :foreign_key => "user_id"
+  has_many :tasks, :source => :projects, :foreign_key => "user_id"
+  has_many :projectattachments, :source => :projects, :foreign_key => "user_id"
   
 
   fields do

@@ -9,7 +9,8 @@
  
 <table-plus with="&@users" fields="this,  projects.count, sites.count, invoices.count, tickets.count">
 <search-form:></search-form:>
-<empty-message:>Sin tickets</empty-message:>
+<empty-message:>Sin usuarios</empty-message:>
+<controls:/>
 </table-plus>
 </section>
    </content:>

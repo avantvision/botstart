@@ -719,7 +719,7 @@
             <a:project param="parent-link">&laquo; <name/></a>
             <h2 param="heading"><name/></h2>
 
-            <field-names-where-true fields="" param/>
+            <field-names-where-true fields="completed" param/>
 
             <a:user param="creator-link"/>
 
@@ -727,7 +727,7 @@
           </header>
     
           <section param="content-body">
-            <field-list fields="status" param/>
+            <field-list fields="position" param/>
           </section>
     </content:>
     
@@ -848,7 +848,7 @@
     
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="status, priority" param/>
+            <field-list fields="status, priority, ticketfile_file_name, ticketfile_content_type, ticketfile_file_size" param/>
             <section param="collection-section">
               <h3 param="collection-heading">Replies</h3>
               

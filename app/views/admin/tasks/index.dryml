@@ -10,6 +10,7 @@
 <table-plus with="&@tasks" fields="this,  project, user, status">
 <search-form:></search-form:>
 <empty-message:>Sin tickets</empty-message:>
+<controls:/>
 </table-plus>
 </section>
    </content:>

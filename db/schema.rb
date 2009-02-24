@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090220213855) do
+ActiveRecord::Schema.define(:version => 20090224011512) do
 
   create_table "invoices", :force => true do |t|
     t.string   "title"
@@ -66,8 +66,9 @@ ActiveRecord::Schema.define(:version => 20090220213855) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
-    t.string   "status"
+    t.boolean  "completed"
     t.integer  "user_id"
+    t.integer  "position"
   end
 
   create_table "tickets", :force => true do |t|
@@ -78,6 +79,9 @@ ActiveRecord::Schema.define(:version => 20090220213855) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "status"
+    t.string   "ticketfile_file_name"
+    t.string   "ticketfile_content_type"
+    t.string   "ticketfile_file_size"
   end
 
   create_table "users", :force => true do |t|

@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
 
   fields do
     name :string
-    description :text
+    description :html
     status enum_string(:new, :working, :completed)
     timestamps
   end

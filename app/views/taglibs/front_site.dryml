@@ -9,5 +9,12 @@
 
 <def tag="app-name">My Bot</def>
 
+<include src="hoboyui" plugin="hoboyui"/>
 
+<extend tag="page">
+  <old-page merge>
+    <append-head:><yui-editor-assets/></append-head:>
+    <body: class="yui-skin-sam" param/>
+  </old-page>
+</extend>
 
