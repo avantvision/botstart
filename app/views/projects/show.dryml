@@ -1,15 +1,38 @@
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+
+  <li class="current">	<a:>Overview</a></li>  
+<li>	<a:tasks>Tasks</a></li>
+<li>	<a:projectattachments>Files</a></li>
+  </navigation>
+</def>
+
 <def tag="card" for="Task">
   <card class="task" param="default" merge>
     <table width="100%">
 	<tr>
 		<td width="70%">
-      <boolean-checkbox-editor:completed message="Updating Task">
-<message>Updating Task</message>
-</boolean-checkbox-editor>
+      <editor:completed message="Updating Task" update="completed"/>
 <editor:name/>
 		</td>
 		<td>
+	<div align="right">	<delete-button label="X" in-place="true" image="trash.gif"/></div>
+		</td>
+	</tr>
+	</table>
 
+  </card>
+</def>
+<def tag="card" for="Projectattachment">
+  <card class="projectattachment" param="default" merge>
+    <table width="100%">
+	<tr>
+		<td width="80%">
+  
+<a><view:pattachment_file_name/></a>
+		<td>
+		<div align="right">	<delete-button label="X" in-place="true" image="trash.gif"/></div>
+					</td>
 		</td>
 	</tr>
 	</table>
@@ -20,7 +43,7 @@
 
 
 <page title="Projects">
-
+<sub-nav: current="Overview"/>
   <body: class="projects-page"/>
 
 
@@ -58,7 +81,7 @@
 			<table width="100%">
 			<tr>
 			<td width="70%">
-              <p class="mytasks-section">Project Tasks</p>
+             <a:tasks class="tasks-nav"> <p class="mytasks-section">Project Tasks</p></a>
 			</td>
 			<td>
 				<div align="right">
@@ -67,7 +90,7 @@
 				</tr>
 				</table>
          <p class="separator-section"/>
-           <sortable-collection:tasks part="tasks"><controls:/></sortable-collection>
+           <sortable-collection:tasks part="tasks" class="tasks-sortable-column"><controls:/></sortable-collection>
 
 		 
 	
@@ -83,17 +106,20 @@
 
             </section>
             <section class="collection-section">
-              <h3 class="collection-heading">Project Files</h3>
+            	<table width="100%">
+				<tr>
+				<td width="70%">
+	              <p class="mytasks-section">Project Files</p>
+				</td>
+				<td>
+					<div align="right">
+					              <a:projectattachments action="new" if="&can_create?(@project.projectattachments)" class="nocss"><image src="plus.png" border="0" alt="New task for this project" title="New file for this project"/></a></div>
+					</td>
+					</tr>
+					</table>
+         <sortable-collection:projectattachments part="projectattachments" class="attachments-sortable-column"/>
+
               
-             <collection:projectattachments>
-			<card: without-creator-link >
-			<a><view:pattachment_file_name /></a>
-			</card:>
-			<empty-message:>No files in this project </empty-message:>              	
-
-              </collection:projectattachments>
-
-              <div align="right"><a:projectattachments action="new" if="&can_create?(@project.projectattachments)" class="new-link">New attachment</a></div>
             </section>
 
           </section>

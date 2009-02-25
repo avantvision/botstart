@@ -1,30 +1,64 @@
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+
+  <li>	<a with="&@project">Overview</a></li>  
+<li class="current">	<a:>Tasks</a></li>
+<li>	<a href="projectattachments">Files</a></li>
+  </navigation>
+</def>
+
+<def tag="card" for="Task">
+  <card class="task" param="default" merge>
+    <table width="100%">
+	<tr>
+		<td width="70%">
+      <editor:completed message="Updating Task" update="completed"/>
+<editor:name/>
+		</td>
+		<td>
+	<div align="right">	<delete-button label="X" in-place="true" image="trash.gif"/></div>
+		</td>
+	</tr>
+	</table>
+
+  </card>
+</def>
 <def tag="index-page" for="Task">
   <page merge title="Projects">
     <body: class="project-page" param/>
+		
     
     <content: param>
+   <section-group class="content-body">
+      <section class="main-content">
       <header param="content-header">
         <h2 param="heading">Tasks for: <a with="&@project"/></h2>
 
         <p param="count" if>There <count prefix="are"/></p>
 
       </header>
+
       
       <section param="content-body">
 
         <page-nav param="top-page-nav"/>
       
        
-		<table-plus with="&@tasks" fields="this, completed, project ">
-		<search-form:></search-form:>
-		 <name-view:><view:name/></name-view:>
-		<empty-message:>Sin tickets</empty-message:>
-		<controls:/>
-		</table-plus>
+	 <sortable-collection with="&@tasks" part="tasks" class="tasks-sortable-column"><controls:/></sortable-collection>
+	
       
         <page-nav param="bottom-page-nav"/>
       </section>
+</section>
+		<aside>
+			<div align="center">
+<a href="tasks/new" class="nocss"><image src="newtask.png" border="0" alt="New task for this project" title="New task for this project"/></a>
+</div>
+	      </aside>
+	
+	      </section-group>
     </content:>
   </page>
 </def>
 <index-page/>
+

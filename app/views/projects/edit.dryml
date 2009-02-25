@@ -1,0 +1,29 @@
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+
+  <li class="current">	<a:>Overview</a></li>  
+<li>	<a:tasks>Tasks</a></li>
+<li>	<a:projectattachments>Files</a></li>
+  </navigation>
+</def>
+
+<def tag="edit-page" for="Projectattachment">
+  <page merge title="Edit Projectattachment">
+
+    <body: class="edit-page projectattachment" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Projectattachment" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+<edit-page/>
