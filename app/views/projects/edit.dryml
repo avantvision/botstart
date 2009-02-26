@@ -6,6 +6,7 @@
 <li>	<a:projectattachments>Files</a></li>
   </navigation>
 </def>
+<def tag="app-name"><editor:name/></def>
 
 <def tag="edit-page" for="Projectattachment">
   <page merge title="Edit Projectattachment">

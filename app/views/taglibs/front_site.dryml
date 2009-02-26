@@ -13,6 +13,7 @@
 
 <extend tag="page">
   <old-page merge>
+
     <append-head:><yui-editor-assets/></append-head:>
     <body: class="yui-skin-sam" param/>
   </old-page>

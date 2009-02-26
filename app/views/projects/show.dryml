@@ -1,3 +1,8 @@
+<def tag="app-name"><editor:name/></def>
+<def tag="last5-tasks">
+	  
+<%= @last5tasks = Task.find(:first) %>
+</def>
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs>
 
@@ -43,6 +48,7 @@
 
 
 <page title="Projects">
+	
 <sub-nav: current="Overview"/>
   <body: class="projects-page"/>
 
@@ -54,7 +60,7 @@
 			<table width="100%">
 							<tr valign="middle">
 								<td width="85%" height="55" >
-			            <h2 class="heading"><editor:name/></h2>
+			            <h2 class="heading">Project Overview &amp; and activity</h2>
 			</td>
 			<td height="55" align="center">
 						<a action="edit" if="&can_edit?" class="edit-link">Edit Project</a>			</td>
@@ -90,6 +96,7 @@
 				</tr>
 				</table>
          <p class="separator-section"/>
+<last5-tasks/>
            <sortable-collection:tasks part="tasks" class="tasks-sortable-column"><controls:/></sortable-collection>
 
 		 

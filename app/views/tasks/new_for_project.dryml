@@ -1,4 +1,6 @@
-
+<def tag="app-name">
+<%= current_project = Project.find(@project) %>
+</def>
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs>
 
