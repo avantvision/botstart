@@ -1,0 +1,51 @@
+<def tag="form" for="Writeboard">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name" param/>
+ <input type="hidden" name="writeboard[body]" value="Click here to start writing in this Writeboard..."/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="app-name">
+<%= current_project = Project.find(@project) %>
+</def>
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+
+  <li>	<a with="&@project">Overview</a></li>  
+<li  >	<a href="../tasks">Tasks</a></li>
+<li >	<a href="../projectattachments">Files</a></li>
+<li class="current">	<a href="../writeboards">Writeboards</a></li>
+  </navigation>
+</def>
+<def tag="new-for-project-page" polymorphic/>
+<def tag="new-for-project-page" for="Writeboard">
+  <page merge title="New Writeboard for #{name :with => @project}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Writeboard</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="project" method="post" param>
+          <field-list: skip="body"/>
+
+
+
+
+          <submit: label="Create Writeboard"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+<new-for-project-page>
+
+</new-for-project-page>

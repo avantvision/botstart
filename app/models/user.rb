@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :invoices, :dependent => :destroy, :foreign_key => "user_id"
   has_many :replies, :source => :tickets, :foreign_key => "user_id"
   has_many :tasks, :source => :projects, :foreign_key => "user_id"
+  has_many :writeboards, :source => :projects, :foreign_key => "user_id"
   has_many :projectattachments, :source => :projects, :foreign_key => "user_id"
   
 

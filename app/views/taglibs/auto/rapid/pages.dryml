@@ -448,6 +448,9 @@
           <preview-with-more:tasks.recent param="preview-tasks">
             <more:>more</more:>
           </preview-with-more>
+          <preview-with-more:writeboards.recent param="preview-writeboards">
+            <more:>more</more:>
+          </preview-with-more>
         </aside>
       </section-group>
     </content:>
@@ -1235,5 +1238,175 @@
     
   </page>
 </def>
+
+
+  
+<!-- ====== Writeboard Pages ====== -->
+
+
+<def tag="index-page" for="Writeboard">
+  <page merge title="Writeboards">
+    <body: class="index-page writeboard" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">Writeboards</h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Writeboard">
+  <page merge title="New Writeboard">
+    <body: class="new-page writeboard" param/>
+    
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">New Writeboard</h2>
+      </section>
+      
+      <section param="content-body">
+        <form param>
+          <submit: label="Create Writeboard"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Writeboard">
+  <page merge title="Writeboard">
+
+    <body: class="show-page writeboard" param/>
+
+    <content: param>
+          <header param="content-header">
+            <a:project param="parent-link">&laquo; <name/></a>
+            <h2 param="heading"><name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+            <a:user param="creator-link"/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Writeboard</a>
+          </header>
+    
+          <section param="content-body">
+            <view:body param="description"/>
+            <field-list fields="position" param/>
+          </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Writeboard">
+  <page merge title="Edit Writeboard">
+
+    <body: class="edit-page writeboard" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">Edit <type-name/></h2>
+        <delete-button label="Remove This Writeboard" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+    
+  </page>
+</def>
+
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Writeboard">
+  <page merge title="New Writeboard for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  writeboard" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Writeboard</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
+          <submit: label="Create Writeboard"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+<def tag="index-for-project-page" polymorphic/>
+<def tag="index-for-project-page" for="Writeboard">
+  <page merge title="Writeboards for #{name :with => @project, :no_wrapper => true}">
+    <body: class="index-for-owner-page project writeboard" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <div param="back-to">Back to <a with="&@project"/></div>
+        <h2 param="heading">Writeboards</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+        <p param="count" if>There <count prefix="are"/></p>
+      </header>
+      
+      <section param="content-body">
+
+        <a action="new" to="&model" param="new-link"/>
+
+        <page-nav param="top-page-nav"/>
+      
+        <collection param/>
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-for-project-page" polymorphic/>
+<def tag="new-for-project-page" for="Writeboard">
+  <page merge title="New Writeboard for #{name :with => @project}">
+    
+    <body: class="new-for-owner-page  writeboard" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Writeboard</h2>
+        <h3 param="subheading">For: <a with="&@project"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="project" method="post" param>
+          <field-list: skip="project"/>
+          <submit: label="Create Writeboard"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
 
 

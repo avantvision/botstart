@@ -8,6 +8,7 @@
   <li>	<a with="&@project">Overview</a></li>  
 <li class="current">	<a:>Tasks</a></li>
 <li>	<a href="projectattachments">Files</a></li>
+<li>	<a href="writeboards">Writeboards</a></li>
   </navigation>
 </def>
 

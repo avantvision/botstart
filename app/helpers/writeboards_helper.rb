@@ -1,0 +1,2 @@
+module WriteboardsHelper
+end

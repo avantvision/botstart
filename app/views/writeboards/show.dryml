@@ -1,0 +1,62 @@
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+	 <li>	<a:project param="parent-link" >Back to project</a></li>  
+
+
+	<li class="current">	<a:>View Writeboard</a></li>
+  </navigation>
+</def>
+
+<def tag="form" for="Writeboard">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="position, name, body, project, user" param/>
+  
+  </form>
+</def>
+
+<def tag="show-page" for="Writeboard">
+  <page merge title="Writeboard">
+
+    <body: class="show-page writeboard" param/>
+
+    <content: param>
+  <section-group class="content-body">
+ <section class="main-content">
+          <header param="content-header">
+            <a:project param="parent-link">&laquo; <name/></a>
+            <h2 param="heading">Writeboard: <editor:name/></h2>
+
+            <field-names-where-true fields="" param/>
+
+          
+<div align="right"></div>
+
+
+            <a action="edit" if="&can_edit?" param="edit-link">Edit Writeboard</a>
+          </header>
+    
+          <section param="content-body">
+	
+           <editor:body cols="68" rows="22" without="save-button"/>
+		</section>
+		</section>
+	<aside>
+		<div align="center">
+		<h3>Simple formatting codes</h3>
+		<p>Writeboard uses simple, easy-to-write codes to format your text.</p>
+		<p>Type the codes in your text and you will see the results after clicking outside the edit box</p>
+		<p>Here are some examples:</p>
+		<p>*bold* → <strong>bold</strong><br/>
+			_italic_ → <em>italic</em></p>
+		</div>
+	</aside>
+         
+      
+
+</section-group>
+    </content:>
+   
+  </page>
+</def>
+<show-page/>

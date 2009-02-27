@@ -9,6 +9,7 @@
   <li class="current">	<a:>Overview</a></li>  
 <li>	<a:tasks>Tasks</a></li>
 <li>	<a:projectattachments>Files</a></li>
+<li>	<a:writeboards>Writeboards</a></li>
   </navigation>
 </def>
 
@@ -57,10 +58,10 @@
       <section-group class="content-body">
         <section class="main-content">
           <header class="content-header">
-			<table width="100%">
-							<tr valign="middle">
+			<table width="100%" >
+							<tr valign="middle" >
 								<td width="85%" height="55" >
-			            <h2 class="heading">Project Overview &amp; and activity</h2>
+			            <h2 class="heading">Project overview &amp; activity</h2>
 			</td>
 			<td height="55" align="center">
 						<a action="edit" if="&can_edit?" class="edit-link">Edit Project</a>			</td>
@@ -137,13 +138,15 @@
 	<ul>
 		<li><a:tasks class="tasks-nav">Tasks</a></li>
 		<li><a:projectattachments class="tasks-nav">Files</a></li>
+		<li><a:writeboards class="tasks-nav">Writeboards</a></li>
 		</ul>
 		<h3>Tools:</h3>
 		<ul>
 			<li> <a:tasks action="new" if="&can_create?(@project.tasks)" class="new-link">New Task</a></li>
-			<li> <a:projectattachments action="new" if="&can_create?(@project.projectattachments)" class="new-link">New attachment</a></li>
+			<li> <a:projectattachments action="new" if="&can_create?(@project.projectattachments)" class="new-link">New File</a></li>
+			<li> <a:writeboards action="new" if="&can_create?(@project.writeboards)" class="new-link">New Writeboard</a></li>
 			</ul>
-	<p>Project Status</p>
+	<h4>Project Status</h4>
 	<editor:status class="status"/>  
 			
 	<field-names-where-true fields="" />

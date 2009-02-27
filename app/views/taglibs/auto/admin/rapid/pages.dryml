@@ -316,6 +316,9 @@
           <preview-with-more:tasks.recent param="preview-tasks">
             <more:>more</more:>
           </preview-with-more>
+          <preview-with-more:writeboards.recent param="preview-writeboards">
+            <more:>more</more:>
+          </preview-with-more>
         </aside>
       </section-group>
     </content:>

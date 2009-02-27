@@ -16,7 +16,16 @@
   </form>
 </def>
 
-
+<def tag="form" for="Writeboard">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, body" param/>
+ <input type="hidden" name="writeboard[body]" value="Click here to start writing in this writeboard"/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
 
 <def tag="form" for="Ticket">
   <form merge param="default" enctype="multipart/form-data" >

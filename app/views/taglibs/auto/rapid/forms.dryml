@@ -39,7 +39,7 @@
 <def tag="form" for="Project">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, description, status, projectattachments, tasks, user" param/>
+    <field-list fields="name, description, status, projectattachments, tasks, user, writeboards" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>
@@ -99,7 +99,7 @@
 <def tag="form" for="User">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, email_address, administrator, invoices, projectattachments, projects, replies, sites, tasks, tickets" param/>
+    <field-list fields="name, email_address, administrator, invoices, projectattachments, projects, replies, sites, tasks, tickets, writeboards" param/>
     <div param="actions">
       <submit label="Save" param/><or-cancel param="cancel"/>
     </div>
@@ -128,4 +128,16 @@
     </div>
   </form>
 </def>
+
+<def tag="form" for="Writeboard">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="position, name, body, project, user" param/>
+    <div param="actions">
+      <submit label="Save" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
 

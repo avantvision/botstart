@@ -98,3 +98,15 @@
   </card>
 </def>
 
+<def tag="card" for="Writeboard">
+  <card class="writeboard" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+    </header:>
+    <body: param>
+      <view:body param="content"/>
+      <a:user param="creator-link"/>
+    </body:>
+  </card>
+</def>
+

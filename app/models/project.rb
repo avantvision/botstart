@@ -5,6 +5,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :user, :creator => true
   has_many :tasks, :dependent => :destroy, :order => :position
+  has_many :writeboards, :dependent => :destroy, :order => :position
   has_many :projectattachments, :dependent => :destroy 
 
   fields do

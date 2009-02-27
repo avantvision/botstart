@@ -7,6 +7,7 @@
   <li>	<a with="&@project">Overview</a></li>  
 <li class="current" >	<a href="../tasks">Tasks</a></li>
 <li>	<a href="../projectattachments">Files</a></li>
+<li>	<a href="../writeboards">Writeboards</a></li>
   </navigation>
 </def>
 <def tag="new-for-project-page" polymorphic/>
@@ -25,6 +26,7 @@
         <form owner="project" method="post" param>
           <field-list: skip="project, completed, position"/>
 	<hidden-id-field:/>
+
           <submit: label="Create Task"/>
         </form>
       </section>

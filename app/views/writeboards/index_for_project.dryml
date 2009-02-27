@@ -1,0 +1,71 @@
+<def tag="app-name">
+<%= current_project = Project.find(@project) %>
+</def>
+
+<def tag="main-nav">
+  <navigation class="main-nav" merge-attrs>
+
+  <li>	<a with="&@project">Overview</a></li>  
+<li >	<a href="tasks">Tasks</a></li>
+<li>	<a href="projectattachments">Files</a></li>
+<li class="current"><a href="writeboards">Writeboards</a></li>
+  </navigation>
+</def>
+
+<def tag="card" for="Writeboard">
+  <card class="writeboard" param="default" merge>
+    <table width="100%">
+	<tr>
+		<td width="80%">
+  
+<a><view:name/></a>
+		<td>
+		<div align="right">	<delete-button label="X" in-place="true" image="trash.gif"/></div>
+					</td>
+		</td>
+	</tr>
+	</table>
+
+  </card>
+</def>
+
+
+
+<def tag="index-page" for="Writeboard">
+  <page merge title="Writeboards">
+    <body: class="index-page writeboard" param/>
+    
+    <content: param>
+   <section-group class="content-body">
+      <section class="main-content">
+      <header param="content-header">
+        <h2 param="heading">Writeboards for: <a with="&@project"/></h2>
+
+        <p param="count" if>There <count prefix="are"/></p>
+
+      </header>
+
+      
+      <section param="content-body">
+
+        <page-nav param="top-page-nav"/>
+      
+       
+	 <sortable-collection with="&@writeboards" part="writeboards" class="writeboards-sortable-column"><controls:/></sortable-collection>
+	
+      
+        <page-nav param="bottom-page-nav"/>
+      </section>
+</section>
+		<aside>
+			<div align="center">
+<a href="writeboards/new" class="nocss"><image src="newwriteboard.png" border="0" alt="New writeboard for this project" title="New writeboard for this project"/></a>
+</div>
+	      </aside>
+	
+	      </section-group>
+    </content:>
+  </page>
+</def>
+<index-page/>
+
