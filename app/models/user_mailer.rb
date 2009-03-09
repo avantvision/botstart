@@ -11,4 +11,15 @@ class UserMailer < ActionMailer::Base
     @headers    = {}
   end
   
+
+def send_writeboard(user)
+ 
+ recipients :email_address
+ from "writeboards@bot.avantvision.net"
+ subject "Mybot -- writeboard"
+ body :writeboard =>  body
+
+
+ end
+  
 end

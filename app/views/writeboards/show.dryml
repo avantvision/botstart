@@ -49,6 +49,10 @@
 		<p>Here are some examples:</p>
 		<p>*bold* → <strong>bold</strong><br/>
 			_italic_ → <em>italic</em></p>
+			
+		<p>
+			<a action="sendme">Send Writeboard to my email</a>
+		</p>
 		</div>
 	</aside>
          

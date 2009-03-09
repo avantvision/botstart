@@ -289,30 +289,6 @@
   </page>
 </def>
 
-
-
-<def tag="new-for-user-page" polymorphic/>
-<def tag="new-for-user-page" for="Projectattachment">
-  <page merge title="New Projectattachment for #{name :with => @user}">
-    
-    <body: class="new-for-owner-page  projectattachment" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">New Projectattachment</h2>
-        <h3 param="subheading">For: <a with="&@user"/></h3>
-      </header>
-      
-      <section param="content-body">
-        <form owner="user" method="post" param>
-          <field-list: skip="user"/>
-          <submit: label="Create Projectattachment"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
 <def tag="index-for-project-page" polymorphic/>
 <def tag="index-for-project-page" for="Projectattachment">
   <page merge title="Projectattachments for #{name :with => @project, :no_wrapper => true}">
@@ -356,6 +332,30 @@
       <section param="content-body">
         <form owner="project" method="post" param>
           <field-list: skip="project"/>
+          <submit: label="Create Projectattachment"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Projectattachment">
+  <page merge title="New Projectattachment for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  projectattachment" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Projectattachment</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
           <submit: label="Create Projectattachment"/>
         </form>
       </section>
@@ -883,30 +883,6 @@
   </page>
 </def>
 
-
-
-<def tag="new-for-user-page" polymorphic/>
-<def tag="new-for-user-page" for="Task">
-  <page merge title="New Task for #{name :with => @user}">
-    
-    <body: class="new-for-owner-page  task" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">New Task</h2>
-        <h3 param="subheading">For: <a with="&@user"/></h3>
-      </header>
-      
-      <section param="content-body">
-        <form owner="user" method="post" param>
-          <field-list: skip="user"/>
-          <submit: label="Create Task"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
 <def tag="index-for-project-page" polymorphic/>
 <def tag="index-for-project-page" for="Task">
   <page merge title="Tasks for #{name :with => @project, :no_wrapper => true}">
@@ -950,6 +926,30 @@
       <section param="content-body">
         <form owner="project" method="post" param>
           <field-list: skip="project"/>
+          <submit: label="Create Task"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Task">
+  <page merge title="New Task for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  task" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Task</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
           <submit: label="Create Task"/>
         </form>
       </section>
@@ -1333,30 +1333,6 @@
   </page>
 </def>
 
-
-
-<def tag="new-for-user-page" polymorphic/>
-<def tag="new-for-user-page" for="Writeboard">
-  <page merge title="New Writeboard for #{name :with => @user}">
-    
-    <body: class="new-for-owner-page  writeboard" param/>
-    
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">New Writeboard</h2>
-        <h3 param="subheading">For: <a with="&@user"/></h3>
-      </header>
-      
-      <section param="content-body">
-        <form owner="user" method="post" param>
-          <field-list: skip="user"/>
-          <submit: label="Create Writeboard"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
 <def tag="index-for-project-page" polymorphic/>
 <def tag="index-for-project-page" for="Writeboard">
   <page merge title="Writeboards for #{name :with => @project, :no_wrapper => true}">
@@ -1400,6 +1376,30 @@
       <section param="content-body">
         <form owner="project" method="post" param>
           <field-list: skip="project"/>
+          <submit: label="Create Writeboard"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+
+<def tag="new-for-user-page" polymorphic/>
+<def tag="new-for-user-page" for="Writeboard">
+  <page merge title="New Writeboard for #{name :with => @user}">
+    
+    <body: class="new-for-owner-page  writeboard" param/>
+    
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">New Writeboard</h2>
+        <h3 param="subheading">For: <a with="&@user"/></h3>
+      </header>
+      
+      <section param="content-body">
+        <form owner="user" method="post" param>
+          <field-list: skip="user"/>
           <submit: label="Create Writeboard"/>
         </form>
       </section>

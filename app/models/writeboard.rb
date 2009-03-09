@@ -6,20 +6,12 @@ class Writeboard < ActiveRecord::Base
   acts_as_list :scope => :project
   fields do
     name :string
-    body :html
+    body :textile
     timestamps
   end
   
-  lifecycle do
+  
 
-     state :active, :default => true
-
-
-
-     transition :send_writeboard_user, { :active => :active }, :new_key => true do
-       WriteboardMailer.deliver_send_writeboard(self, lifecycle.key)
-     end
-   end
 
   # --- Permissions --- #
 
